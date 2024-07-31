@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+        }
+
+        .toggle-button {
+            display: flex;
+            position: relative;
+            width: 110px;
+            height: 50px;
+            background-color: #292626;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .toggle-button::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            width: 45px;
+            height: 45px;
+            background-color: white;
+            border-radius: 50%;
+            transition: left 0.5s ease;
+        }
+
+        .toggle-button.active::before {
+            left: 58px;
+        }
+
+        .img1 {
+            height: 40px;
+            border-radius: 25px;
+            margin: 5px;
+        }
+
+        .img2 {
+            height: 40px;
+            border-radius: 25px;
+            margin: 5px;
+        }
+
+        .bg-color-light {
+            background-color: rgb(0, 255, 64);
+        }
+
+        .bg-color-dark {
+            background-color: black;
+        }
+
+        .bg-color-gray {
+            background-color: gray;
+        }
+
+        .heading-font-color-light {
+            color: black;
+        }
+
+        .heading-font-color-dark {
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-color-light">
+    <button class="toggle-button" id="toggle">
+        <img class="img1" src="https://img.pikbest.com/origin/09/28/55/29JpIkbEsTd7Y.png!w700wp">
+        <img class="img2" src="https://en.pimg.jp/081/311/403/1/81311403.jpg"/>
+    </button>
+
+    <h1 class="heading-font-color-light" style="font-size: 60px; margin-top: 100px;"><b>Click on the Toggle Button</b></h1>
+
+    <script>
+        const button = document.querySelector('button');
+        const body = document.querySelector('body');
+        const heading = document.querySelector('h1');
+
+        button.addEventListener('click', () => {
+            button.classList.toggle('active');
+            body.classList.toggle('bg-color-light');
+            body.classList.toggle('bg-color-dark');
+
+            heading.classList.toggle('heading-font-color-light');
+            heading.classList.toggle('heading-font-color-dark');
+        });
+    </script>
+</body>
+</html>
